@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 function Counter() {
   let [history, setHistory] = useState([]);
@@ -6,7 +7,11 @@ function Counter() {
 
   const ajouterScore = () => {
     let input = parseInt(document.getElementById("input").value);
-    if (isNaN(input)) return;
+    if (isNaN(input) || input < 0) {
+      alert("Entrer un score valide");
+      document.getElementById("input").value = "";
+      return;
+    }
 
     let newScore = score + input;
     if (newScore < 0) newScore = 0;
@@ -46,28 +51,15 @@ function Counter() {
           <input
             type="number"
             id="input"
-            className="w-full p-3 text-lg text-blue-50 bg-transparent border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 placeholder-white/70"
+            className="w-full p-3 text-lg text-blue-400 bg-transparent border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 placeholder-black"
             placeholder="Enter score"
           />
           <div className="flex justify-between gap-3">
-            <button
-              className="flex-1 bg-green-500 hover:bg-green-600 transition-all text-white py-2 px-4 rounded-lg font-medium shadow-md"
-              onClick={ajouterScore}
-            >
-              Ajouter
-            </button>
-            <button
-              className="flex-1 bg-yellow-500 hover:bg-yellow-600 transition-all text-white py-2 px-4 rounded-lg font-medium shadow-md"
-              onClick={retour}
-            >
-              Retour
-            </button>
-            <button
-              className="flex-1 bg-red-500 hover:bg-red-600 transition-all text-white py-2 px-4 rounded-lg font-medium shadow-md"
-              onClick={resetScore}
-            >
-              Reset
-            </button>
+            <Button action={ajouterScore} text="Ajouter" />
+
+            <Button action={retour} text="Retour" />
+
+            <Button action={resetScore} text="Reset" />
           </div>
         </div>
 

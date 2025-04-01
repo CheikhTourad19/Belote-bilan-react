@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "./componenents/Button";
+import reactsvg from "./assets/react.svg";
 
 function Counter() {
   let [history, setHistory] = useState([]);
@@ -36,9 +37,10 @@ function Counter() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center  p-6">
+    <div className=" flex items-center justify-center  p-6 ">
       <div className="w-full max-w-md p-6 rounded-2xl bg-white bg-opacity-10 backdrop-blur-md shadow-lg border border-white/20">
         {/* Score Display */}
+        <img src={reactsvg} className="" alt="" />
         <h1 className="text-4xl font-bold text-center text-black mb-4">
           Score:{" "}
           <span className={score < 10 ? "text-red-400" : "text-green-300"}>

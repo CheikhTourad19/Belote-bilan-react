@@ -36,7 +36,7 @@ function Counter() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 p-6">
+    <div className="min-h-screen flex items-center justify-center  p-6">
       <div className="w-full max-w-md p-6 rounded-2xl bg-white bg-opacity-10 backdrop-blur-md shadow-lg border border-white/20">
         {/* Score Display */}
         <h1 className="text-4xl font-bold text-center text-black mb-4">

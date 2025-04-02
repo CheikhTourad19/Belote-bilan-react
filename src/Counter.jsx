@@ -97,7 +97,7 @@ function Counter() {
           <h2 className="text-lg text-black font-semibold mb-2">
             Historique :
           </h2>
-          <div className="bg-white bg-opacity-20 p-4 rounded-xl max-h-32 overflow-y-auto shadow-inner">
+          <div className="bg-white bg-opacity-20 p-4 rounded-xl max-h-64 overflow-y-auto shadow-inner">
             {history1.length === 0 && history2.length === 0 ? (
               <p className="text-black text-center">Aucun historique</p>
             ) : (
@@ -113,16 +113,6 @@ function Counter() {
                   </tr>
                 </thead>
                 <tbody>
-                  {history1.map((value, index) => (
-                    <tr key={index}>
-                      <td className="py-1 px-4 border-b border-white/30">
-                        {value}
-                      </td>
-                      <td className="py-1 px-4 border-b border-white/30">
-                        {history2[index] !== undefined ? history2[index] : "-"}
-                      </td>
-                    </tr>
-                  ))}
                   <tr>
                     <td className="py-1 px-4 border-b text-blue-500 border-white/30">
                       {score1}
@@ -131,6 +121,18 @@ function Counter() {
                       {score2}
                     </td>
                   </tr>
+                  {[...history1].reverse().map((value, index) => (
+                    <tr key={index}>
+                      <td className="py-1 px-4 border-b border-white/30">
+                        {value}
+                      </td>
+                      <td className="py-1 px-4 border-b border-white/30">
+                        {history2[history2.length - 1 - index] !== undefined
+                          ? history2[history2.length - 1 - index]
+                          : "-"}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             )}

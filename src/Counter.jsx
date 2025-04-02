@@ -123,6 +123,14 @@ function Counter() {
                       </td>
                     </tr>
                   ))}
+                  <tr>
+                    <td className="py-1 px-4 border-b text-blue-500 border-white/30">
+                      {score1}
+                    </td>
+                    <td className="py-1 px-4 border-b text-blue-500 border-white/30">
+                      {score2}
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             )}
